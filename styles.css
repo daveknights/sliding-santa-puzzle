@@ -1,0 +1,146 @@
+:root {
+    --green: 44,88,51;
+    --red: #fe0000;
+    --tile-size: 60px;
+    --tile-offset: calc(var(--tile-size) / 2);
+
+    @media (min-width: 768px) {
+        --tile-size: 120px;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 440px;
+}
+.moves {
+    color: rgb(var(--green));
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.puzzle-grid {
+    border: solid 40px var(--red);
+    border-radius: 20px;
+    height: calc((var(--tile-size) * 3) + 80px);
+    margin-bottom: 10px;
+    position: relative;
+    width: calc((var(--tile-size) * 3) + 80px);
+}
+.puzzle-grid > div {
+    background-image: url('./santa-claus-dt.webp');
+    background-repeat: no-repeat;
+    border: solid 1px #eee;
+    cursor: pointer;
+    height: var(--tile-size);
+    position: absolute;
+    width: var(--tile-size);
+}
+#tile-1 {
+    background-position: left top;
+}
+#tile-2 {
+    background-position: center top;
+}
+#tile-3 {
+    background-position: right top;
+}
+#tile-4 {
+    background-position: left center;
+}
+#tile-5 {
+    background-position: center;
+}
+#tile-6 {
+    background-position: right center;
+}
+#tile-7 {
+    background-position: left bottom;
+}
+#tile-8 {
+    background-position: center bottom;
+}
+.pos-1 {
+    left: 0;
+    top: 0;
+}
+.pos-2 {
+    left: calc(50% - var(--tile-offset));
+    top: 0;
+}
+.pos-3 {
+    right: 0;
+    top: 0;
+}
+.pos-4 {
+    left: 0;
+    top: calc(50% - var(--tile-offset));
+}
+.pos-5 {
+    left: calc(50% - var(--tile-offset));
+    top: calc(50% - var(--tile-offset));
+}
+.pos-6 {
+    right: 0;
+    top: calc(50% - var(--tile-offset));;
+}
+.pos-7 {
+    bottom: 0;
+    left: 0;
+}
+.pos-8 {
+    bottom: 0;
+    left: calc(50% - var(--tile-offset));
+}
+.pos-9 {
+    bottom: 0;
+    right: 0;
+}
+.start-puzzle {
+    background: rgba(var(--green), 0.2);
+    border: solid 2px rgb(var(--green));
+    border-radius: 5px;
+    box-shadow: 0 1px 7px #aaa;
+    color: rgb(var(--green));
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding-block: 10px;
+    width: 240px;
+}
+.start-puzzle:focus {
+    box-shadow: none;
+    font-size: 1.2rem;
+    height: 50px;
+    width: 230px;
+}
+.message {
+    background: rgba(var(--green), 0.2);
+    border: solid 2px rgb(var(--green));
+    border-radius: 5px;
+    color: var(--red);
+    display: none;
+    font-size: 1.75rem;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+.show {
+    display: block;
+}
+.playing {
+    display: none;
+}
